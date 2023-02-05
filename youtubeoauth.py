@@ -14,7 +14,7 @@ from google.auth.transport.requests import Request
 
 scopes = ["https://www.googleapis.com/auth/youtube.readonly"]
 
-def main():
+def youtubeAuth():
     credentials = None
 
     # Disable OAuthlib's HTTPS verification when running locally.
@@ -48,7 +48,12 @@ def main():
     youtube = googleapiclient.discovery.build(
         api_service_name, api_version, credentials=credentials)
 
-    # request = youtube.channels().list(
+    return youtube
+
+def main():
+    youtube = youtubeAuth()
+
+       # request = youtube.channels().list(
     #     part="snippet,contentDetails,statistics",
     #     mine=True
     # )
@@ -63,8 +68,6 @@ def main():
 
     print(response)
 
-#def main():
-#    youtube = youtubAuth()
 
 if __name__ == "__main__":
     main()
