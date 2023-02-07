@@ -49,25 +49,3 @@ def youtubeAuth():
         api_service_name, api_version, credentials=credentials)
 
     return youtube
-
-def main():
-    youtube = youtubeAuth()
-
-       # request = youtube.channels().list(
-    #     part="snippet,contentDetails,statistics",
-    #     mine=True
-    # )
-
-    request = youtube.playlists().list(
-        part="snippet",
-        mine=True
-    )
-
-
-    response = request.execute()
-
-    print(response)
-
-
-if __name__ == "__main__":
-    main()
